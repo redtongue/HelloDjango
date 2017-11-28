@@ -1,0 +1,37 @@
+{% extends "commodity/base.html" %}
+ 
+{% block content %}
+<div class="posts" >
+    {% for post in post_list %}
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title"><a href="{% url 'blog_detail' id=post.id %}">{{ post.title }}</a></h2>
+ 
+                    <p class="post-meta">
+                        Time:  <a class="post-author" href="#">{{ post.pub_date |date:'Y /m /d'}}</a> <a class="post-category post-category-js" href="#">{{ post.category }}</a>
+                    </p>
+            </header>
+ 
+                <div class="post-description">
+                    <script type="text/javascript">
+                                                var str = "<img alt="微信图片_20171113191916.jpg" src="/media/uploads/blog/images/微信图片_20171113191916_20171118221631_750.jpg">"
+                                                alert({post.content);
+                                                var imgreg = /<img.*/>;
+                                                var s = str.match(imreg);
+                                                for (var i = 0;i<s.length;i++){
+                                                    alert(s[i]);
+                                                }
+                                       </script>
+                                      {{post.content|safe}}
+                   <!--{{ post.content|safe }}-->
+                    
+                </div>
+                <a class="pure-button" href="{% url 'blog_detail' id=post.id %}">Read More >>> </a>
+        </section>
+    {% endfor %}
+</div><!-- /.blog-post -->
+<style>
+    .post-description img {width:800px}
+    .post-description p {width:800px}
+</style>
+{% endblock %}
