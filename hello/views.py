@@ -33,7 +33,7 @@ def Test(request):
     return render(request,'commodity/test.html',{'current_time':datetime.now()})
 
 def home(request):
-    post_list = models.Article.objects.all();
+    post_list = models.Article.objects.all()
     return render(request,'commodity/home.html',{'post_list':post_list})
 
 def Detail(request,id):
@@ -42,3 +42,11 @@ def Detail(request,id):
     except models.Article.DoesNotExist:
         raise Http404
     return render(request,'commodity/post.html',{'post':post})
+
+def list_category(request,category):
+    try:
+        post_list = models.Article.objects.filter(category=str(category))
+    except models.Article.DoesNotExist:
+        raise Http404
+    return render(request,'commodity/categeory.html',{'post_li':post_list})
+    #return HttpResponse("this is :"+category)

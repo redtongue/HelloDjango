@@ -1,8 +1,9 @@
 {% extends "commodity/base.html" %}
  
 {% block content %}
+<h2 class="post-title">{{ post_li.0.category }}</h2>
 <div class="posts" >
-    {% for post in post_list %}
+    {% for post in post_li %}
         <section class="post">
                             <div style="width:100%;display: inline-block;margin:0;padding:0;top:0;">
                 <div class="post-description" style="float:left">

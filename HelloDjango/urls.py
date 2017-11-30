@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^ueditor/',include(djud_urls)),
     url(r'^home/',views.home,name="blog_home"),
     url(r'^post/(?P<id>\d+)/$',views.Detail,name="blog_detail"),
+    url(r'^category/(?P<category>\w+)/$',views.list_category,name="blog_category"),
 ]
 
 if settings.DEBUG:

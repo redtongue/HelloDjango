@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for HelloDjango project.
 
@@ -7,6 +8,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/1.11/topics/settings/
 
 For the full list of settings and their values, see
+
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
@@ -23,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^=*m_#)n_eh_+_hkjmrg#bovz#k*k9y0^3^sy!purji(-8k_@1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '*',
@@ -127,8 +129,14 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'common_static'),
-    os.path.join(BASE_DIR,"media"),
+    #os.path.join(BASE_DIR,'common_static'),
+    #os.path.join(BASE_DIR,"media"),
+    #os.path.join(BASE_DIR,"static"),
+    ('assets',os.path.join(STATIC_ROOT,'assets').replace('\\','/')),
+    ('css',os.path.join(STATIC_ROOT,'css').replace('\\','/')),
+    ('dist',os.path.join(STATIC_ROOT,'dist').replace('\\','/')),
+    ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/')),
+    ('js',os.path.join(STATIC_ROOT,'js').replace('\\','/')),
 )
 
 MEDIA_URL = '/media/'

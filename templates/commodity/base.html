@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+{% load staticfiles%}
 <html lang="zh-hans">
 <head>
     <meta charset="utf-8">
@@ -8,6 +9,18 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css">
+
+    <script type="text/javascript" language="JavaScript">
+    function  showImg(){
+        document.getElementById("wxImg").style.display='block';
+        document.getElementById("wxImg").style.left = 10+"px";
+        document.getElementById("wxImg").style.top = 100+"px";
+    }
+    function hideImg(){
+        document.getElementById("wxImg").style.display='none';
+    }
+
+    </script>
 </head>
 <body>
 <div id="layout" class="pure-g">
@@ -21,13 +34,13 @@
                         <a class="button-success pure-button" href="{% url 'blog_home' %}">主页</a>
                     </li>
                     <li class="nav-item">
-                        <a class="button-success pure-button" href="{% url 'blog_home' %}">归档</a>
+                        <a class="button-success pure-button" href="{% url 'blog_home' %}">类别</a>
                     </li>
                     <li class="nav-item">
                         <a class="pure-button" href="{% url 'blog_home' %}">Github</a>
                     </li>
                     <li class="nav-item">
-                        <a class="button-error pure-button" href="{% url 'blog_home' %}">微博</a>
+                        <a class="button-error pure-button" href="javascript:void(0)" onmouseout="hideImg()" onmousemove="showImg()"><img  id = "wechat" src="/static/images/wechat.jpg" style="width:33px;height:13px"></a>
                     </li>
                     <li class="nav-item">
                         <a class="button-success pure-button" href="{% url 'blog_home' %}">专题</a>
@@ -39,8 +52,12 @@
             </nav>
         </div>
     </div>
- 
- 
+  <div id="wxImg" style="display:none;back-ground:#f00;position:absolute; z-index:999;">
+                <p>点  击  关  闭</p>
+        <img class="wx" src="/static/images/QRcode.jpg" alt="error" style="width:200px"/>
+    </div>
+</div>
+
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
             {% block content %}
@@ -57,6 +74,7 @@
         </div>
     </div>
 </div>
- 
+
+
 </body>
 </html>
