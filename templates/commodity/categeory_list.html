@@ -1,0 +1,24 @@
+{% extends "commodity/base.html" %}
+ 
+{% block content %}
+
+<div class="posts" >
+    {% for post in categeory_list %}
+        <section class="post">
+
+                        <div style="width:100%;display: inline-block;margin:0;padding:0;top:0;">
+                   <header class="post-header">
+                                                <h2 class="post-title"><a href="{% url 'blog_category' category=post.category %}">{{ post.category }}</a>>></h2>
+ 
+                    
+                    </header>
+ 
+                        </div>
+        </section>
+    {% endfor %}
+</div><!-- /.blog-post -->
+<style>
+    .post-description{width:100%;height:auto;background-color: #ffecec;border:10px solid #ffecec;padding:0;}
+    .post-description img {width:100%;margin:10 auto;}
+</style>
+{% endblock %}

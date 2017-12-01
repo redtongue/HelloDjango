@@ -15,6 +15,7 @@
         document.getElementById("wxImg").style.display='block';
         document.getElementById("wxImg").style.left = 10+"px";
         document.getElementById("wxImg").style.top = 100+"px";
+        setTimeout(function(){$("wxImg").css("display","none");},2000);
     }
     function hideImg(){
         document.getElementById("wxImg").style.display='none';
@@ -34,13 +35,13 @@
                         <a class="button-success pure-button" href="{% url 'blog_home' %}">主页</a>
                     </li>
                     <li class="nav-item">
-                        <a class="button-success pure-button" href="{% url 'blog_home' %}">类别</a>
+                        <a class="button-success pure-button" href="{% url 'blog_categeory_list' %}">类别</a>
                     </li>
                     <li class="nav-item">
                         <a class="pure-button" href="{% url 'blog_home' %}">Github</a>
                     </li>
                     <li class="nav-item">
-                        <a class="button-error pure-button" href="javascript:void(0)" onmouseout="hideImg()" onmousemove="showImg()"><img  id = "wechat" src="/static/images/wechat.jpg" style="width:33px;height:13px"></a>
+                        <a class="button-error pure-button" href="javascript:void(0)"  onmouseout="hideImg()" onmousemove="showImg()"><img  id = "wechat" src="/static/images/wechat.jpg" style="width:33px;height:13px"></a>
                     </li>
                     <li class="nav-item">
                         <a class="button-success pure-button" href="{% url 'blog_home' %}">专题</a>

@@ -43,10 +43,17 @@ def Detail(request,id):
         raise Http404
     return render(request,'commodity/post.html',{'post':post})
 
-def list_category(request,category):
+def category(request,category):
     try:
         post_list = models.Article.objects.filter(category=str(category))
     except models.Article.DoesNotExist:
         raise Http404
     return render(request,'commodity/categeory.html',{'post_li':post_list})
     #return HttpResponse("this is :"+category)
+
+def list_category(request):
+    try:
+        post_list = models.Article.objects.values('category').distinct
+    except models.Article.DoesNotExist:
+        raise Http404
+    return render(request,'commodity/categeory_list.html',{'categeory_list':post_list})
